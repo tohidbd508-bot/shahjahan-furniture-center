@@ -1,1 +1,251 @@
 
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>শাহজাহান ফার্নিচার সেন্টার</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
+header{background:#173d32;color:white;padding:22px 12px;text-align:center}
+header h1{margin:0;font-size:26px}
+header p{margin:8px 0 0}
+nav{background:#245b49;padding:13px;text-align:center}
+nav a{color:white;text-decoration:none;margin:0 10px;font-weight:bold}
+.hero{background:linear-gradient(120deg,#173d32,#54836b);color:white;text-align:center;padding:45px 15px}
+.hero h2{font-size:28px}
+button{border:0;border-radius:6px;padding:11px 16px;cursor:pointer;font-weight:bold}
+.green{background:#16834c;color:white}
+.orange{background:#ed8c25;color:white}
+.container{max-width:1100px;margin:auto;padding:20px}
+h2.section{text-align:center;color:#245b49}
+.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.categories button{background:#245b49;color:white}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
+.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 9px #0002}
+.card img{width:100%;height:170px;object-fit:cover;background:#eee}
+.card .info{padding:13px}
+.card h3{margin:5px 0}
+.price{color:#16834c;font-size:20px;font-weight:bold}
+.card button{width:100%;margin-top:8px}
+#admin{background:white;padding:18px;border-radius:10px;margin-top:25px}
+input,textarea,select{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px}
+footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:30px}
+.hidden{display:none}
+.admin-item{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #ddd;padding:10px 0}
+#wa{position:fixed;bottom:18px;right:15px;background:#20b65b;color:white;border-radius:30px;padding:14px;text-decoration:none;font-weight:bold;box-shadow:0 2px 8px #0004}
+</style>
+</head>
+<body>
+
+<header>
+<h1>শাহজাহান ফার্নিচার সেন্টার</h1>
+<p>আপনার পছন্দের ফার্নিচার, সাশ্রয়ী দামে</p>
+</header>
+
+<nav>
+<a href="#home">হোম</a>
+<a href="#products">পণ্য</a>
+<a href="#contact">যোগাযোগ</a>
+<a href="#admin">Admin</a>
+</nav>
+
+<section class="hero" id="home">
+<h2>স্বাগতম শাহজাহান ফার্নিচার সেন্টারে</h2>
+<p>খাট, সোফা, আলমারি, টেবিল, চেয়ার ও প্লাস্টিক পণ্য</p>
+<a href="#products"><button class="orange">পণ্য দেখুন</button></a>
+</section>
+
+<div class="container" id="products">
+<h2 class="section">আমাদের পণ্যসমূহ</h2>
+<div class="categories">
+<button onclick="filterProducts('সব')">সব পণ্য</button>
+<button onclick="filterProducts('খাট')">খাট</button>
+<button onclick="filterProducts('সোফা')">সোফা</button>
+<button onclick="filterProducts('আলমারি')">আলমারি</button>
+<button onclick="filterProducts('টেবিল')">টেবিল</button>
+<button onclick="filterProducts('চেয়ার')">চেয়ার</button>
+<button onclick="filterProducts('প্লাস্টিক')">প্লাস্টিক</button>
+</div>
+<br>
+<div class="products" id="productList"></div>
+</div>
+
+<div class="container" id="contact">
+<h2 class="section">যোগাযোগ করুন</h2>
+<p>📍 বাংলাদেশ</p>
+<p>📞 অর্ডার করতে WhatsApp বাটনে ক্লিক করুন।</p>
+</div>
+
+<div class="container">
+<div id="admin">
+<h2>🔐 Admin Panel</h2>
+<p>পণ্য যোগ ও মুছে ফেলার জন্য লগইন করুন।</p>
+<div id="login">
+<input type="password" id="password" placeholder="Admin Password">
+<button class="green" onclick="login()">Login</button>
+</div>
+
+<div id="dashboard" class="hidden">
+<h3>নতুন পণ্য যোগ করুন</h3>
+<input id="pname" placeholder="পণ্যের নাম">
+<select id="pcat">
+<option>খাট</option><option>সোফা</option>
+<option>আলমারি</option><option>টেবিল</option>
+<option>চেয়ার</option><option>প্লাস্টিক</option>
+</select>
+<input type="number" id="pprice" placeholder="দাম (টাকা)">
+<input id="pimage" placeholder="ছবির URL">
+<textarea id="pdesc" placeholder="পণ্যের বিবরণ"></textarea>
+<button class="green" onclick="addProduct()">পণ্য যোগ করুন</button>
+<h3>পণ্যের তালিকা</h3>
+<div id="adminList"></div>
+<button class="orange" onclick="logout()">Logout</button>
+</div>
+</div>
+</div>
+
+<a id="wa" href="#" onclick="openWhatsApp();return false;">WhatsApp অর্ডার</a>
+
+<footer>
+<h3>শাহজাহান ফার্নিচার সেন্টার</h3>
+<p>আপনার বিশ্বাস, আমাদের অঙ্গীকার ❤️</p>
+<p>© 2026 All Rights Reserved</p>
+</footer>
+
+<script>
+// আপনার বাংলাদেশের WhatsApp নম্বর এখানে বসাবেন।
+// উদাহরণ: 01712345678 হলে লিখবেন 8801712345678
+const WHATSAPP_NUMBER = "+99548157074;
+
+const defaultProducts = [
+{id:1,name:"কাঠের খাট",cat:"খাট",price:18000,desc:"সুন্দর ও মজবুত কাঠের খাট",image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"},
+{id:2,name:"সোফা সেট",cat:"সোফা",price:35000,desc:"আধুনিক ডিজাইনের সোফা সেট",image:"https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600"},
+{id:3,name:"আলমারি",cat:"আলমারি",price:15000,desc:"ঘরের জন্য সুন্দর আলমারি",image:"https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=600"},
+{id:4,name:"ডাইনিং টেবিল",cat:"টেবিল",price:22000,desc:"পরিবারের জন্য ডাইনিং টেবিল",image:"https://images.unsplash.com/photo-1617806118233-18e1de247200?w=600"},
+{id:5,name:"আধুনিক চেয়ার",cat:"চেয়ার",price:2500,desc:"আরামদায়ক চেয়ার",image:"https://images.unsplash.com/photo-1503602642458-232111445657?w=600"},
+{id:6,name:"প্লাস্টিক চেয়ার",cat:"প্লাস্টিক",price:650,desc:"মজবুত প্লাস্টিকের চেয়ার",image:"https://images.unsplash.com/photo-1503602642458-232111445657?w=600"}
+];
+
+let products;
+try {
+ products=JSON.parse(localStorage.getItem("shahjahanProducts")) || defaultProducts;
+} catch(e) {
+ products=defaultProducts;
+}
+
+function save(){
+ localStorage.setItem("shahjahanProducts",JSON.stringify(products));
+}
+
+function render(list=products){
+ const box=document.getElementById("productList");
+ box.innerHTML="";
+ list.forEach(p=>{
+ const card=document.createElement("div");
+ card.className="card";
+ const img=document.createElement("img");
+ img.src=p.image || "";
+ img.alt=p.name;
+ img.onerror=()=>{img.style.display="none"};
+ const info=document.createElement("div");
+ info.className="info";
+ const name=document.createElement("h3");
+ name.textContent=p.name;
+ const desc=document.createElement("p");
+ desc.textContent=p.desc || "";
+ const price=document.createElement("div");
+ price.className="price";
+ price.textContent="৳ "+Number(p.price).toLocaleString("en-IN");
+ const btn=document.createElement("button");
+ btn.className="green";
+ btn.textContent="WhatsApp-এ অর্ডার";
+ btn.onclick=()=>order(p);
+ info.append(name,desc,price,btn);
+ card.append(img,info);
+ box.append(card);
+ });
+}
+
+function filterProducts(cat){
+ render(cat==="সব"?products:products.filter(p=>p.cat===cat));
+}
+
+function order(p){
+ const msg=`আমি ${p.name} অর্ডার করতে চাই। দাম: ৳${p.price}`;
+ openWhatsApp(msg);
+}
+
+function openWhatsApp(message="আসসালামু আলাইকুম, আমি পণ্য সম্পর্কে জানতে চাই।"){
+ if(WHATSAPP_NUMBER.includes("X")){
+ alert("প্রথমে কোডে আপনার WhatsApp নম্বর বসান।");
+ return;
+ }
+ window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
+}
+
+function login(){
+ if(document.getElementById("password").value==="1234"){
+ document.getElementById("login").classList.add("hidden");
+ document.getElementById("dashboard").classList.remove("hidden");
+ showAdmin();
+ }else alert("ভুল পাসওয়ার্ড!");
+}
+
+function logout(){
+ document.getElementById("dashboard").classList.add("hidden");
+ document.getElementById("login").classList.remove("hidden");
+ document.getElementById("password").value="";
+}
+
+function addProduct(){
+ const name=document.getElementById("pname").value.trim();
+ const cat=document.getElementById("pcat").value;
+ const price=Number(document.getElementById("pprice").value);
+ const image=document.getElementById("pimage").value.trim();
+ const desc=document.getElementById("pdesc").value.trim();
+
+ if(!name || price<=0){
+ alert("পণ্যের নাম ও সঠিক দাম দিন");
+ return;
+ }
+ products.push({id:Date.now(),name,cat,price,image,desc});
+ save();
+ render();
+ showAdmin();
+ ["pname","pprice","pimage","pdesc"].forEach(id=>document.getElementById(id).value="");
+ alert("পণ্য যোগ হয়েছে!");
+}
+
+function deleteProduct(id){
+ if(confirm("এই পণ্যটি মুছে ফেলবেন?")){
+ products=products.filter(p=>p.id!==id);
+ save();
+ render();
+ showAdmin();
+ }
+}
+
+function showAdmin(){
+ const box=document.getElementById("adminList");
+ box.innerHTML="";
+ products.forEach(p=>{
+ const item=document.createElement("div");
+ item.className="admin-item";
+ const title=document.createElement("span");
+ title.textContent=p.name+" - ৳"+p.price;
+ const btn=document.createElement("button");
+ btn.className="orange";
+ btn.textContent="Delete";
+ btn.onclick=()=>deleteProduct(p.id);
+ item.append(title,btn);
+ box.append(item);
+ });
+}
+
+render();
+</script>
+</body>
+</html>
+
