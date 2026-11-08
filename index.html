@@ -152,7 +152,11 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.firestore();
 const storage = firebase.storage();
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
+<script>
+// For Firebase JS SDK...
+const firebaseConfig = {
 let products = [];
 let editingId = null;
 let editingImage = "";
