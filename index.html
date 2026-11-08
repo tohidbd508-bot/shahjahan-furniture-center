@@ -1,14 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>শাহজাহান ফার্নিচার সেন্টার</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;font-family:Arial,sans-serif;background:#f5f6f5;color:#222}
-header{background:#173d32;color:white;text-align:center;padding:22px}
+header{background:#173d32;color:white;text-align:center;padding:24px 12px}
 header h1{margin:0}
 nav{background:#245b49;padding:14px;text-align:center}
 nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
@@ -36,6 +36,7 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 .status{padding:10px;background:#edf6ef;border-radius:6px;margin:10px 0}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -58,6 +59,7 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 
 <div class="container" id="products">
 <h2 class="section">আমাদের পণ্যসমূহ</h2>
+
 <div class="categories">
 <button onclick="filterProducts('সব')">সব পণ্য</button>
 <button onclick="filterProducts('খাট')">খাট</button>
@@ -67,6 +69,7 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 <button onclick="filterProducts('চেয়ার')">চেয়ার</button>
 <button onclick="filterProducts('প্লাস্টিক')">প্লাস্টিক</button>
 </div>
+
 <p id="loading">পণ্য লোড হচ্ছে...</p>
 <div class="products" id="productList"></div>
 </div>
@@ -93,6 +96,7 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 <div id="dashboard" class="hidden">
 <div class="status">Admin Dashboard</div>
 <h3 id="formTitle">নতুন পণ্য যোগ করুন</h3>
+
 <input id="pname" placeholder="পণ্যের নাম">
 
 <select id="pcat">
@@ -118,6 +122,7 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 
 <h3>পণ্যের তালিকা</h3>
 <div id="adminList"></div>
+
 <button class="red" onclick="logout()">Logout</button>
 </div>
 </div>
@@ -131,21 +136,14 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 <p>© 2026 All Rights Reserved</p>
 </footer>
 
-<!-- Firebase SDK: একবার করে লোড হবে -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
 <script>
-// Firebase Console থেকে নিজের সম্পূর্ণ Config এখানে বসাবেন
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyBIgHRQU7-CsCx-wAsJ2McinIcH8rcGhRw",
   authDomain: "shahjahan-furniture-center.firebaseapp.com",
@@ -173,12 +171,15 @@ let isAdmin = false;
 let currentFilter = "সব";
 
 function openWhatsApp(message="আসসালামু আলাইকুম, আমি ফার্নিচার সম্পর্কে জানতে চাই।"){
-  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank");
+  window.open(
+    "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),
+    "_blank"
+  );
 }
 
 function order(p){
   openWhatsApp("আসসালামু আলাইকুম, আমি "+p.name+
-  " অর্ডার করতে চাই। দাম: ৳"+p.price);
+    " অর্ডার করতে চাই। দাম: ৳"+p.price);
 }
 
 function filterProducts(cat){
@@ -258,7 +259,7 @@ function showAdmin(){
   });
 }
 
-// পণ্য সবার জন্য লোড হবে, Admin Login ছাড়াই
+// সবার জন্য পণ্য লোড হবে
 function loadProducts(){
   db.collection("products").onSnapshot(snapshot => {
     products = snapshot.docs.map(doc => ({
@@ -277,6 +278,7 @@ function loadProducts(){
   });
 }
 
+// Admin যাচাই
 auth.onAuthStateChanged(async user => {
   isAdmin = false;
 
@@ -355,6 +357,7 @@ async function saveProduct(){
     return;
   }
 
+  const wasEditing = Boolean(editingId);
   btn.disabled = true;
   btn.textContent = "অপেক্ষা করুন...";
 
@@ -377,7 +380,7 @@ async function saveProduct(){
       updatedAt: Date.now()
     };
 
-    if(editingId){
+    if(wasEditing){
       await db.collection("products").doc(editingId).update(data);
       alert("পণ্য আপডেট হয়েছে!");
     }else{
@@ -392,7 +395,7 @@ async function saveProduct(){
     alert("সমস্যা হয়েছে: " + e.message);
   }finally{
     btn.disabled = false;
-    btn.textContent = editingId ? "আপডেট করুন" : "পণ্য যোগ করুন";
+    btn.textContent = wasEditing ? "পণ্য যোগ করুন" : "পণ্য যোগ করুন";
   }
 }
 
@@ -439,8 +442,9 @@ async function deleteProduct(p){
   }
 }
 
-// পেজ চালু হলেই পণ্য লোড
+// পেজ চালু হলে পণ্য লোড
 loadProducts();
 </script>
+
 </body>
 </html>
