@@ -1,139 +1,109 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>শাহজাহান ফার্নিচার সেন্টার</title>
-
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f6f5;color:#222}
-header{background:#173d32;color:white;text-align:center;padding:24px 12px}
-header h1{margin:0}
-nav{background:#245b49;padding:14px;text-align:center}
-nav a{color:white;text-decoration:none;margin:8px;font-weight:bold}
-.hero{background:linear-gradient(120deg,#173d32,#54836b);color:white;text-align:center;padding:45px 12px}
-.container{max-width:1100px;margin:auto;padding:18px}
-.section{text-align:center;color:#245b49}
-button{border:0;border-radius:6px;padding:11px 15px;cursor:pointer;font-weight:bold;margin:4px}
-.green{background:#16834c;color:white}
-.orange{background:#ed8c25;color:white}
-.red{background:#c62828;color:white}
-input,textarea,select{width:100%;padding:12px;margin:7px 0;border:1px solid #ccc;border-radius:6px;font-size:15px}
-.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-.categories button{background:#245b49;color:white}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px}
-.card{background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 9px #0002}
-.card img{width:100%;height:190px;object-fit:cover;background:#eee}
-.info{padding:13px}
-.price{font-size:20px;color:#16834c;font-weight:bold}
-.card button{width:100%;margin-top:8px}
-#admin{background:white;padding:18px;border-radius:10px;box-shadow:0 2px 9px #0001}
-.hidden{display:none!important}
-.admin-item{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid #ddd;padding:12px 0;flex-wrap:wrap}
-footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:30px}
-#wa{position:fixed;bottom:18px;right:15px;background:#20b65b;color:white;border-radius:30px;padding:14px;text-decoration:none;font-weight:bold}
-.status{padding:10px;background:#edf6ef;border-radius:6px;margin:10px 0}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>শাহজাহান ফার্নিচার সেন্টার</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,sans-serif;background:#f5f5f5;color:#222}
+    header{background:#263b2d;color:white;padding:18px;text-align:center}
+    header h1{margin:0;font-size:25px}
+    nav{background:#17251c;padding:12px;text-align:center}
+    nav a{color:white;text-decoration:none;margin:0 10px}
+    .hero{background:#dce8dc;text-align:center;padding:35px 15px}
+    .hero h2{margin:0 0 10px}
+    .container{max-width:1100px;margin:auto;padding:18px}
+    .filters{text-align:center;margin:15px 0}
+    button{background:#246b3b;color:white;border:0;padding:10px 15px;border-radius:5px;cursor:pointer;margin:4px}
+    button:hover{background:#174a29}
+    input,textarea,select{width:100%;padding:11px;margin:7px 0;border:1px solid #ccc;border-radius:5px}
+    .products{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:15px}
+    .product{background:white;border-radius:8px;padding:12px;box-shadow:0 2px 7px #ddd}
+    .product img{width:100%;height:180px;object-fit:cover;border-radius:6px;background:#eee}
+    .product h3{margin:10px 0 5px}
+    .price{color:#167336;font-weight:bold;font-size:18px}
+    .whatsapp{background:#168b45}
+    .panel{background:white;padding:18px;margin:20px 0;border-radius:8px;box-shadow:0 2px 7px #ddd}
+    .hidden{display:none}
+    footer{background:#263b2d;color:white;text-align:center;padding:20px;margin-top:25px}
+    .small{font-size:13px;color:#666}
+  </style>
 </head>
-
 <body>
 
 <header>
-<h1>শাহজাহান ফার্নিচার সেন্টার</h1>
-<p>আপনার পছন্দের ফার্নিচার, সাশ্রয়ী দামে</p>
+  <h1>শাহজাহান ফার্নিচার সেন্টার</h1>
+  <p>আপনার পছন্দের ফার্নিচার ও প্লাস্টিক পণ্য</p>
 </header>
 
 <nav>
-<a href="#home">হোম</a>
-<a href="#products">পণ্য</a>
-<a href="#contact">যোগাযোগ</a>
-<a href="#admin">Admin</a>
+  <a href="#home">হোম</a>
+  <a href="#products">পণ্য</a>
+  <a href="#contact">যোগাযোগ</a>
+  <a href="#admin">Admin Login</a>
 </nav>
 
 <section class="hero" id="home">
-<h2>স্বাগতম শাহজাহান ফার্নিচার সেন্টারে</h2>
-<p>খাট, সোফা, আলমারি, টেবিল, চেয়ার ও প্লাস্টিক পণ্য</p>
-<a href="#products"><button class="orange">পণ্য দেখুন</button></a>
+  <h2>স্বাগতম শাহজাহান ফার্নিচার সেন্টারে</h2>
+  <p>মানসম্মত ফার্নিচার ও প্রয়োজনীয় পণ্য কিনুন সহজেই।</p>
+  <a href="#products"><button>পণ্য দেখুন</button></a>
 </section>
 
-<div class="container" id="products">
-<h2 class="section">আমাদের পণ্যসমূহ</h2>
+<main class="container">
+  <section id="products">
+    <h2>আমাদের পণ্য</h2>
+    <div class="filters">
+      <button onclick="showCategory('সব')">সব পণ্য</button>
+      <button onclick="showCategory('ফার্নিচার')">ফার্নিচার</button>
+      <button onclick="showCategory('প্লাস্টিক')">প্লাস্টিক পণ্য</button>
+    </div>
+    <p id="loading">পণ্য লোড হচ্ছে...</p>
+    <div class="products" id="productList"></div>
+  </section>
 
-<div class="categories">
-<button onclick="filterProducts('সব')">সব পণ্য</button>
-<button onclick="filterProducts('খাট')">খাট</button>
-<button onclick="filterProducts('সোফা')">সোফা</button>
-<button onclick="filterProducts('আলমারি')">আলমারি</button>
-<button onclick="filterProducts('টেবিল')">টেবিল</button>
-<button onclick="filterProducts('চেয়ার')">চেয়ার</button>
-<button onclick="filterProducts('প্লাস্টিক')">প্লাস্টিক</button>
-</div>
+  <section id="contact" class="panel">
+    <h2>যোগাযোগ</h2>
+    <p>ফোন / WhatsApp: 01716192812</p>
+    <a href="https://wa.me/8801716192812" target="_blank">
+      <button class="whatsapp">WhatsApp-এ যোগাযোগ করুন</button>
+    </a>
+  </section>
 
-<p id="loading">পণ্য লোড হচ্ছে...</p>
-<div class="products" id="productList"></div>
-</div>
+  <section id="admin" class="panel">
+    <h2>Admin Login</h2>
+    <div id="loginArea">
+      <input id="adminEmail" type="email" placeholder="Admin Email">
+      <input id="adminPassword" type="password" placeholder="Admin Password">
+      <button onclick="adminLogin()">Login</button>
+      <p id="loginMessage" class="small"></p>
+    </div>
 
-<div class="container" id="contact">
-<h2 class="section">যোগাযোগ করুন</h2>
-<p>📍 বাংলাদেশ</p>
-<p>📞 WhatsApp: 01716192812</p>
-<button class="green" onclick="openWhatsApp()">WhatsApp-এ যোগাযোগ</button>
-</div>
-
-<div class="container">
-<div id="admin">
-<h2>🔐 Admin Panel</h2>
-<p>শুধু অনুমোদিত Admin প্রবেশ করতে পারবেন।</p>
-
-<div id="login">
-<input type="email" id="email" placeholder="Admin Email">
-<input type="password" id="password" placeholder="Admin Password">
-<button class="green" onclick="login()">Login</button>
-<p id="loginStatus"></p>
-</div>
-
-<div id="dashboard" class="hidden">
-<div class="status">Admin Dashboard</div>
-<h3 id="formTitle">নতুন পণ্য যোগ করুন</h3>
-
-<input id="pname" placeholder="পণ্যের নাম">
-
-<select id="pcat">
-<option value="খাট">খাট</option>
-<option value="সোফা">সোফা</option>
-<option value="আলমারি">আলমারি</option>
-<option value="টেবিল">টেবিল</option>
-<option value="চেয়ার">চেয়ার</option>
-<option value="প্লাস্টিক">প্লাস্টিক</option>
-</select>
-
-<input type="number" id="pprice" placeholder="দাম (টাকা)" min="1">
-<textarea id="pdesc" placeholder="পণ্যের বিবরণ"></textarea>
-
-<label>পণ্যের ছবি Upload করুন</label>
-<input type="file" id="pimage" accept="image/*">
-
-<p>অথবা ছবির URL দিন</p>
-<input id="pimageUrl" placeholder="ছবির URL">
-
-<button class="green" onclick="saveProduct()" id="saveBtn">পণ্য যোগ করুন</button>
-<button class="orange hidden" onclick="cancelEdit()" id="cancelBtn">Edit বাতিল</button>
-
-<h3>পণ্যের তালিকা</h3>
-<div id="adminList"></div>
-
-<button class="red" onclick="logout()">Logout</button>
-</div>
-</div>
-</div>
-
-<a id="wa" href="https://wa.me/8801716192812" target="_blank">WhatsApp অর্ডার</a>
+    <div id="dashboard" class="hidden">
+      <h2>Admin Dashboard</h2>
+      <p>এখান থেকে নতুন পণ্য যোগ করতে পারবে।</p>
+      <input id="productName" placeholder="পণ্যের নাম">
+      <input id="productPrice" type="number" placeholder="পণ্যের দাম (টাকা)">
+      <select id="productCategory">
+        <option value="ফার্নিচার">ফার্নিচার</option>
+        <option value="প্লাস্টিক">প্লাস্টিক পণ্য</option>
+      </select>
+      <textarea id="productDescription" placeholder="পণ্যের বিবরণ"></textarea>
+      <label>পণ্যের ছবি নির্বাচন করো:</label>
+      <input id="productImage" type="file" accept="image/*">
+      <button onclick="addProduct()">পণ্য যোগ করুন</button>
+      <p id="adminMessage" class="small"></p>
+      <hr>
+      <h3>পণ্য মুছুন</h3>
+      <div id="adminProductList"></div>
+      <button onclick="adminLogout()" style="background:#a22">Logout</button>
+    </div>
+  </section>
+</main>
 
 <footer>
-<h3>শাহজাহান ফার্নিচার সেন্টার</h3>
-<p>আপনার বিশ্বাস, আমাদের অঙ্গীকার ❤️</p>
-<p>© 2026 All Rights Reserved</p>
+  <p>© 2026 শাহজাহান ফার্নিচার সেন্টার</p>
+  <p>সকল স্বত্ব সংরক্ষিত</p>
 </footer>
 
 <!-- Firebase SDK -->
@@ -143,308 +113,224 @@ footer{background:#173d32;color:white;text-align:center;padding:22px;margin-top:
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
 
 <script>
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBIgHRQU7-CsCx-wAsJ2McinIcH8rcGhRw",
-  authDomain: "shahjahan-furniture-center.firebaseapp.com",
-  databaseURL: "https://shahjahan-furniture-center-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "shahjahan-furniture-center",
-  storageBucket: "shahjahan-furniture-center.firebasestorage.app",
-  messagingSenderId: "372901490413",
-  appId: "1:372901490413:web:c7e5c9d7e430a713c3e6e4",
-  measurementId: "G-8TX4CN9MF0"
-};
-};
+  // তোমার Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBIgHRQU7-CsCx-wAsJ2McinIcH8rcGhRw",
+    authDomain: "shahjahan-furniture-center.firebaseapp.com",
+    projectId: "shahjahan-furniture-center",
+    storageBucket: "shahjahan-furniture-center.firebasestorage.app",
+    messagingSenderId: "372901490413",
+    appId: "1:372901490413:web:c7e5c9d7e430a713c3e6e4",
+    measurementId: "G-8TX4CN9MF0"
+  };
 
-const WHATSAPP_NUMBER = "8801716192812";
+  firebase.initializeApp(firebaseConfig);
 
-firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  const storage = firebase.storage();
 
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
+  let currentCategory = "সব";
+  let isAdmin = false;
+  let products = [];
 
-let products = [];
-let editingId = null;
-let editingImage = "";
-let isAdmin = false;
-let currentFilter = "সব";
-
-function openWhatsApp(message="আসসালামু আলাইকুম, আমি ফার্নিচার সম্পর্কে জানতে চাই।"){
-  window.open(
-    "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),
-    "_blank"
-  );
-}
-
-function order(p){
-  openWhatsApp("আসসালামু আলাইকুম, আমি "+p.name+
-    " অর্ডার করতে চাই। দাম: ৳"+p.price);
-}
-
-function filterProducts(cat){
-  currentFilter = cat;
-  renderProducts();
-}
-
-function renderProducts(){
-  const box = document.getElementById("productList");
-  box.innerHTML = "";
-
-  const filtered = currentFilter === "সব"
-    ? products
-    : products.filter(p => p.cat === currentFilter);
-
-  filtered.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    if(p.image){
-      const img = document.createElement("img");
-      img.src = p.image;
-      img.alt = p.name || "পণ্য";
-      card.appendChild(img);
-    }
-
-    const info = document.createElement("div");
-    info.className = "info";
-
-    const name = document.createElement("h3");
-    name.textContent = p.name || "";
-
-    const desc = document.createElement("p");
-    desc.textContent = p.desc || "";
-
-    const price = document.createElement("div");
-    price.className = "price";
-    price.textContent = "৳ " + Number(p.price).toLocaleString("en-IN");
-
-    const btn = document.createElement("button");
-    btn.className = "green";
-    btn.textContent = "WhatsApp-এ অর্ডার";
-    btn.onclick = () => order(p);
-
-    info.append(name, desc, price, btn);
-    card.appendChild(info);
-    box.appendChild(card);
-  });
-
-  document.getElementById("loading").textContent =
-    filtered.length ? "" : "এখনো কোনো পণ্য যোগ করা হয়নি।";
-}
-
-function showAdmin(){
-  const box = document.getElementById("adminList");
-  box.innerHTML = "";
-
-  products.forEach(p => {
-    const item = document.createElement("div");
-    item.className = "admin-item";
-
-    const title = document.createElement("span");
-    title.textContent = p.name + " - ৳" + p.price;
-
-    const edit = document.createElement("button");
-    edit.className = "green";
-    edit.textContent = "Edit";
-    edit.onclick = () => editProduct(p);
-
-    const del = document.createElement("button");
-    del.className = "red";
-    del.textContent = "Delete";
-    del.onclick = () => deleteProduct(p);
-
-    item.append(title, edit, del);
-    box.appendChild(item);
-  });
-}
-
-// সবার জন্য পণ্য লোড হবে
-function loadProducts(){
-  db.collection("products").onSnapshot(snapshot => {
-    products = snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data()
-    }));
-
-    products.sort((a,b) => (b.createdAt || 0) - (a.createdAt || 0));
-    renderProducts();
-
-    if(isAdmin) showAdmin();
-
-  }, error => {
-    document.getElementById("loading").textContent =
-      "পণ্য লোড হয়নি: " + error.message;
-  });
-}
-
-// Admin যাচাই
-auth.onAuthStateChanged(async user => {
-  isAdmin = false;
-
-  if(!user){
-    document.getElementById("login").classList.remove("hidden");
-    document.getElementById("dashboard").classList.add("hidden");
-    return;
+  // পণ্য দেখানো
+  function loadProducts() {
+    db.collection("products").onSnapshot(snapshot => {
+      products = [];
+      snapshot.forEach(doc => {
+        products.push({id: doc.id, ...doc.data()});
+      });
+      document.getElementById("loading").style.display = "none";
+      displayProducts();
+      if (isAdmin) displayAdminProducts();
+    }, error => {
+      document.getElementById("loading").textContent =
+        "পণ্য লোড হয়নি: " + error.message;
+    });
   }
 
-  try{
-    const adminDoc = await db.collection("admins").doc(user.uid).get();
+  function showCategory(category) {
+    currentCategory = category;
+    displayProducts();
+  }
 
-    if(!adminDoc.exists || adminDoc.data().role !== "admin"){
-      await auth.signOut();
-      document.getElementById("loginStatus").textContent =
-        "এই অ্যাকাউন্ট Admin হিসেবে অনুমোদিত নয়।";
+  function displayProducts() {
+    const list = document.getElementById("productList");
+    list.innerHTML = "";
+
+    const filtered = currentCategory === "সব"
+      ? products
+      : products.filter(p => p.category === currentCategory);
+
+    if (filtered.length === 0) {
+      list.innerHTML = "<p>এখনো কোনো পণ্য যোগ করা হয়নি।</p>";
       return;
     }
 
-    isAdmin = true;
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("dashboard").classList.remove("hidden");
-    showAdmin();
+    filtered.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "product";
 
-  }catch(e){
-    alert("Admin যাচাই করা যায়নি: " + e.message);
-  }
-});
+      const img = document.createElement("img");
+      img.src = p.imageUrl || "";
+      img.alt = p.name || "পণ্য";
 
-async function login(){
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
+      const name = document.createElement("h3");
+      name.textContent = p.name || "";
 
-  if(!email || !password){
-    alert("Email ও Password দিন");
-    return;
-  }
+      const price = document.createElement("p");
+      price.className = "price";
+      price.textContent = "৳ " + (p.price || 0);
 
-  try{
-    await auth.signInWithEmailAndPassword(email,password);
-  }catch(e){
-    alert("Login হয়নি: " + e.message);
-  }
-}
+      const description = document.createElement("p");
+      description.textContent = p.description || "";
 
-async function logout(){
-  await auth.signOut();
-}
+      const order = document.createElement("button");
+      order.className = "whatsapp";
+      order.textContent = "WhatsApp-এ অর্ডার";
+      order.onclick = () => {
+        const message = "আমি এই পণ্যটি অর্ডার করতে চাই: " +
+          p.name + " | দাম: ৳" + p.price;
+        window.open(
+          "https://wa.me/8801716192812?text=" +
+          encodeURIComponent(message), "_blank"
+        );
+      };
 
-async function saveProduct(){
-  if(!isAdmin){
-    alert("শুধু Admin পণ্য যোগ করতে পারবেন");
-    return;
-  }
-
-  const name = document.getElementById("pname").value.trim();
-  const cat = document.getElementById("pcat").value;
-  const price = Number(document.getElementById("pprice").value);
-  const desc = document.getElementById("pdesc").value.trim();
-  const file = document.getElementById("pimage").files[0];
-  const imageUrl = document.getElementById("pimageUrl").value.trim();
-  const btn = document.getElementById("saveBtn");
-
-  if(!name || !Number.isFinite(price) || price <= 0){
-    alert("পণ্যের নাম ও সঠিক দাম দিন");
-    return;
+      card.append(img, name, price, description, order);
+      list.appendChild(card);
+    });
   }
 
-  if(file && !file.type.startsWith("image/")){
-    alert("শুধু ছবির ফাইল দিন");
-    return;
-  }
+  // Admin Login এবং Admin অনুমতি যাচাই
+  async function adminLogin() {
+    const email = document.getElementById("adminEmail").value.trim();
+    const password = document.getElementById("adminPassword").value;
+    const message = document.getElementById("loginMessage");
 
-  if(file && file.size > 5*1024*1024){
-    alert("ছবির সাইজ ৫ MB-এর কম হতে হবে");
-    return;
-  }
-
-  const wasEditing = Boolean(editingId);
-  btn.disabled = true;
-  btn.textContent = "অপেক্ষা করুন...";
-
-  try{
-    let image = editingImage;
-
-    if(file){
-      const path = "products/" + Date.now() + "_" +
-        file.name.replace(/[^a-zA-Z0-9._-]/g,"_");
-
-      const ref = storage.ref(path);
-      await ref.put(file);
-      image = await ref.getDownloadURL();
-    }else if(imageUrl){
-      image = imageUrl;
+    if (!email || !password) {
+      message.textContent = "Email এবং Password লিখুন।";
+      return;
     }
 
-    const data = {
-      name, cat, price, desc, image,
-      updatedAt: Date.now()
-    };
+    message.textContent = "Login হচ্ছে...";
 
-    if(wasEditing){
-      await db.collection("products").doc(editingId).update(data);
-      alert("পণ্য আপডেট হয়েছে!");
-    }else{
-      data.createdAt = Date.now();
-      await db.collection("products").add(data);
-      alert("নতুন পণ্য যোগ হয়েছে!");
+    try {
+      const result = await auth.signInWithEmailAndPassword(email, password);
+      const adminDoc = await db.collection("admins")
+        .doc(result.user.uid).get();
+
+      if (!adminDoc.exists || adminDoc.data().role !== "admin") {
+        await auth.signOut();
+        message.textContent = "এই অ্যাকাউন্টের Admin অনুমতি নেই।";
+        return;
+      }
+
+      isAdmin = true;
+      document.getElementById("loginArea").classList.add("hidden");
+      document.getElementById("dashboard").classList.remove("hidden");
+      displayAdminProducts();
+    } catch (error) {
+      message.textContent = "Login হয়নি: " + error.message;
+    }
+  }
+
+  // নতুন পণ্য যোগ
+  async function addProduct() {
+    const message = document.getElementById("adminMessage");
+    const name = document.getElementById("productName").value.trim();
+    const price = Number(document.getElementById("productPrice").value);
+    const category = document.getElementById("productCategory").value;
+    const description =
+      document.getElementById("productDescription").value.trim();
+    const file = document.getElementById("productImage").files[0];
+
+    if (!isAdmin || !auth.currentUser) {
+      message.textContent = "প্রথমে Admin Login করুন।";
+      return;
+    }
+    if (!name || !price || price < 0) {
+      message.textContent = "পণ্যের নাম ও সঠিক দাম লিখুন।";
+      return;
     }
 
-    cancelEdit();
+    try {
+      message.textContent = "পণ্য যোগ হচ্ছে...";
+      let imageUrl = "";
 
-  }catch(e){
-    alert("সমস্যা হয়েছে: " + e.message);
-  }finally{
-    btn.disabled = false;
-    btn.textContent = wasEditing ? "পণ্য যোগ করুন" : "পণ্য যোগ করুন";
+      if (file) {
+        const safeName = Date.now() + "_" +
+          file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+        const imageRef = storage.ref("products/" + safeName);
+        const upload = await imageRef.put(file);
+        imageUrl = await upload.ref.getDownloadURL();
+      }
+
+      await db.collection("products").add({
+        name,
+        price,
+        category,
+        description,
+        imageUrl,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      document.getElementById("productName").value = "";
+      document.getElementById("productPrice").value = "";
+      document.getElementById("productDescription").value = "";
+      document.getElementById("productImage").value = "";
+      message.textContent = "পণ্য সফলভাবে যোগ হয়েছে!";
+    } catch (error) {
+      message.textContent = "পণ্য যোগ হয়নি: " + error.message;
+    }
   }
-}
 
-function editProduct(p){
-  editingId = p.id;
-  editingImage = p.image || "";
+  // Admin-এর পণ্য তালিকা ও মুছে ফেলা
+  function displayAdminProducts() {
+    const area = document.getElementById("adminProductList");
+    if (!area || !isAdmin) return;
 
-  document.getElementById("pname").value = p.name || "";
-  document.getElementById("pcat").value = p.cat || "খাট";
-  document.getElementById("pprice").value = p.price || "";
-  document.getElementById("pdesc").value = p.desc || "";
-  document.getElementById("pimageUrl").value = p.image || "";
-  document.getElementById("pimage").value = "";
+    area.innerHTML = "";
+    products.forEach(p => {
+      const row = document.createElement("div");
+      row.style.padding = "8px";
+      row.style.borderBottom = "1px solid #ddd";
 
-  document.getElementById("formTitle").textContent = "পণ্য Edit করুন";
-  document.getElementById("saveBtn").textContent = "আপডেট করুন";
-  document.getElementById("cancelBtn").classList.remove("hidden");
+      const label = document.createElement("span");
+      label.textContent = p.name + " — ৳" + p.price + " ";
 
-  document.getElementById("admin").scrollIntoView({behavior:"smooth"});
-}
+      const del = document.createElement("button");
+      del.textContent = "মুছুন";
+      del.style.background = "#a22";
+      del.onclick = () => deleteProduct(p.id);
 
-function cancelEdit(){
-  editingId = null;
-  editingImage = "";
-
-  ["pname","pprice","pdesc","pimageUrl","pimage"].forEach(id => {
-    document.getElementById(id).value = "";
-  });
-
-  document.getElementById("formTitle").textContent = "নতুন পণ্য যোগ করুন";
-  document.getElementById("saveBtn").textContent = "পণ্য যোগ করুন";
-  document.getElementById("cancelBtn").classList.add("hidden");
-}
-
-async function deleteProduct(p){
-  if(!isAdmin) return;
-  if(!confirm(p.name + " মুছে ফেলবেন?")) return;
-
-  try{
-    await db.collection("products").doc(p.id).delete();
-    alert("পণ্য মুছে ফেলা হয়েছে।");
-  }catch(e){
-    alert("Delete হয়নি: " + e.message);
+      row.append(label, del);
+      area.appendChild(row);
+    });
   }
-}
 
-// পেজ চালু হলে পণ্য লোড
-loadProducts();
+  async function deleteProduct(id) {
+    if (!isAdmin) return;
+    if (!confirm("এই পণ্যটি মুছে ফেলতে চান?")) return;
+
+    try {
+      await db.collection("products").doc(id).delete();
+    } catch (error) {
+      alert("মুছতে সমস্যা হয়েছে: " + error.message);
+    }
+  }
+
+  async function adminLogout() {
+    await auth.signOut();
+    isAdmin = false;
+    document.getElementById("dashboard").classList.add("hidden");
+    document.getElementById("loginArea").classList.remove("hidden");
+    document.getElementById("adminPassword").value = "";
+    document.getElementById("loginMessage").textContent = "Logout হয়েছে।";
+  }
+
+  loadProducts();
 </script>
-
 </body>
 </html>
